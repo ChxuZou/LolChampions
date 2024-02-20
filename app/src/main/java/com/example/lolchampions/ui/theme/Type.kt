@@ -28,7 +28,7 @@ val Typography = Typography(
     ),
     displayMedium = TextStyle(
         fontFamily = Beaufortfor,
-        fontWeight = FontWeight.SemiBold,
+        fontWeight = FontWeight.Bold,
         fontSize = 30.sp,
         brush = gradientGold
     ),
