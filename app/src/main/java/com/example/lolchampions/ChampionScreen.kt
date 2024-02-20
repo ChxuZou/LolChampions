@@ -90,7 +90,7 @@ fun ChampionItem(
             ) {
                 ChampionIcon(champion.imageRes)
                 Spacer(Modifier.weight(1f))
-                ChampionInformation(champion.nameRes)
+                ChampionInformation(champion.nameRes, champion.regionRes)
                 Spacer(Modifier.weight(1f))
                 ChampionItemButton(
                     expanded = expanded,
@@ -138,15 +138,23 @@ fun ChampionItemButton(
 @Composable
 fun ChampionInformation(
     nameRes: Int,
+    regionRes: Int,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
         Text(
             text = stringResource(nameRes),
             style = MaterialTheme.typography.displayMedium,
-            modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small)),
+            modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
 
             )
+        Text(
+            text = stringResource(regionRes),
+            style = MaterialTheme.typography.labelSmall,
+            modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
+        )
+
+
     }
 }
 

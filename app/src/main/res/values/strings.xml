@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">LoL Champions</string>
-    <string name="kaisa">K A I \' S A</string>
+    <string name="kaisa_name">K A I \' S A</string>
+    <string name="kaisa_region">EL VACÍO</string>
 </resources>

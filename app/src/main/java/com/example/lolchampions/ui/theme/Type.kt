@@ -35,7 +35,8 @@ val Typography = Typography(
     labelSmall = TextStyle(
         fontFamily = Beaufortfor,
         fontWeight = FontWeight.Bold,
-        fontSize = 14.sp
+        fontSize = 14.sp,
+        brush = gradientGold
     ),
     bodyLarge = TextStyle(
         fontFamily = Beaufortfor,

@@ -5,5 +5,6 @@ import androidx.annotation.StringRes
 
 data class Champion(
     @StringRes val nameRes: Int,
-    @DrawableRes val imageRes: Int
+    @DrawableRes val imageRes: Int,
+    @StringRes val regionRes: Int
 )
