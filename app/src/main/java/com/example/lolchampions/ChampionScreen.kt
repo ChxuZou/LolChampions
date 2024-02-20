@@ -41,6 +41,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.lolchampions.ui.theme.LolChampionsTheme
+import model.Ability
 import model.Champion
 
 @Composable
@@ -78,7 +79,7 @@ fun ChampionItem(
             modifier = Modifier
                 .animateContentSize(
                     animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        dampingRatio = Spring.DampingRatioNoBouncy,
                         stiffness = Spring.StiffnessMedium
                     )
                 )
@@ -90,7 +91,7 @@ fun ChampionItem(
             ) {
                 ChampionIcon(champion.imageRes)
                 Spacer(Modifier.weight(1f))
-                ChampionInformation(champion.nameRes, champion.regionRes)
+                ChampionInformation(champion.nameRes, champion.descriptionRes)
                 Spacer(Modifier.weight(1f))
                 ChampionItemButton(
                     expanded = expanded,
@@ -98,8 +99,8 @@ fun ChampionItem(
                 )
             }
             if (expanded) {
-                ChampionHabilities(
-                    champion, modifier = Modifier.padding(
+                ChampionAbilities(
+                    champion.abilities, modifier = Modifier.padding(
                         start = dimensionResource(R.dimen.padding_medium),
                         top = dimensionResource(R.dimen.padding_small),
                         end = dimensionResource(R.dimen.padding_medium),
@@ -112,9 +113,8 @@ fun ChampionItem(
 }
 
 @Composable
-fun ChampionHabilities(champion: Champion, modifier: Modifier) {
-    //TODO
-    Text(text = "Habilidades")
+fun ChampionAbilities(championAbilities: List<Ability>, modifier: Modifier) {
+    AbilityList(championAbilities = championAbilities, modifier)
 }
 
 @Composable

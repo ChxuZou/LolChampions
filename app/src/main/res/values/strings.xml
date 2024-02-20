@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">LoL Champions</string>
     <string name="kaisa_name">K A I \' S A</string>
-    <string name="kaisa_region">EL VACÍO</string>
+    <string name="kaisa_description">LA HIJA DEL VACÍO</string>
+    <string name="kaisa_ability1_description">Kai\'Sa libera una ráfaga de proyectiles que buscan campeones enemigos cercanos. Arma viviente: Lluvia de Icathia mejora y dispara más misiles.</string>
+    <string name="kaisa_ability2_description">Kai\'Sa dispara un misil de largo alcance y marca a los enemigos con la pasiva. Arma viviente: Buscador del Vacío mejora y aplica más acumulaciones de la pasiva, además de reducir el enfriamiento al golpear a un campeón.</string>
+    <string name="kaisa_ability3_description">Kai\'Sa aumenta brevemente su velocidad de movimiento y después su velocidad de ataque. Arma viviente: Supercarga mejora y otorga brevemente invisibilidad.</string>
+    <string name="kaisa_ability4_description">Kai\'Sa se desliza cerca de un campeón enemigo.</string>
 </resources>
