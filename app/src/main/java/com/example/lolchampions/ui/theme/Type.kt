@@ -7,6 +7,7 @@ import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.lolchampions.R
@@ -14,9 +15,14 @@ import com.example.lolchampions.R
 val Beaufortfor = FontFamily(
     Font(R.font.beaufortfor_lol_regular)
 )
+val Spiegel = FontFamily(
+    Font(R.font.spiegel_tt_bold)
+)
 
 val gradientGold = Brush.horizontalGradient(listOf(Color(0xFFC89B3C),Color(0xFF785A28)))
 val goldToWhite = Brush.verticalGradient(listOf(Color(0xFFBBBBBB),Color(0xFFC89B3C)))
+val greyBrush = Brush.horizontalGradient(listOf(Color(0xFFA18594), Color(0xFFA18594)))
+
 
 @OptIn(ExperimentalTextApi::class)
 val Typography = Typography(
@@ -36,12 +42,14 @@ val Typography = Typography(
         fontFamily = Beaufortfor,
         fontWeight = FontWeight.Bold,
         fontSize = 14.sp,
-        brush = gradientGold
+        brush = gradientGold,
     ),
     bodyLarge = TextStyle(
-        fontFamily = Beaufortfor,
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp
+        fontFamily = Spiegel,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp,
+        brush = greyBrush
+
     )
 )
 

@@ -4,8 +4,8 @@ import com.example.lolchampions.R
 import model.Ability
 import model.Champion
 
-object ChampionsRepository {
-    val champions = listOf(
+class ChampionsDataSource {
+    private val champions = listOf(
         Champion(
             nameRes = R.string.kaisa_name,
             imageRes = R.drawable.kaisa,
@@ -229,4 +229,7 @@ object ChampionsRepository {
         )
 
     )
+    fun getData(): List<Champion> {
+        return champions
+    }
 }

@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">LoL Champions</string>
 
-    <string name="kaisa_name">K A I \' S A</string>
+    <string name="kaisa_name">KAI\'SA</string>
     <string name="kaisa_description">LA HIJA DEL VACÍO</string>
     <string name="kaisa_ability1_description">Kai\'Sa libera una ráfaga de proyectiles que buscan campeones enemigos cercanos. Arma viviente: Lluvia de Icathia mejora y dispara más misiles.</string>
     <string name="kaisa_ability2_description">Kai\'Sa dispara un misil de largo alcance y marca a los enemigos con la pasiva. Arma viviente: Buscador del Vacío mejora y aplica más acumulaciones de la pasiva, además de reducir el enfriamiento al golpear a un campeón.</string>
     <string name="kaisa_ability3_description">Kai\'Sa aumenta brevemente su velocidad de movimiento y después su velocidad de ataque. Arma viviente: Supercarga mejora y otorga brevemente invisibilidad.</string>
     <string name="kaisa_ability4_description">Kai\'Sa se desliza cerca de un campeón enemigo.</string>
 
-    <string name="lux_name">L U X</string>
+    <string name="lux_name">LUX</string>
     <string name="lux_description">LA DAMA LUMINOSA</string>
     <string name="lux_ability1_description">Lux lanza una esfera de luz que inmoviliza y causa daño a un máximo de 2 unidades enemigas.</string>
     <string name="lux_ability2_description">Lux lanza su varita y concentra la luz alrededor de los objetivos aliados a los que alcanza, protegiéndolos de cualquier daño.</string>
@@ -57,7 +57,7 @@
     <string name="aatrox_ability3_description">Aatrox se cura de forma pasiva cuando inflige daño a campeones enemigos. Al activarse, se desliza en una dirección.</string>
     <string name="aatrox_ability4_description">Aatrox libera su forma demoníaca, lo que aterroriza a los súbditos enemigos cercanos, además de aumentar su daño de ataque, curación y velocidad de movimiento. Si consigue un asesinato o asistencia, la duración de este efecto se alarga.</string>
 
-    <string name="ahri_name">A H R I</string>
+    <string name="ahri_name">AHRI</string>
     <string name="ahri_description">LA ZORRA DE NUEVE COLAS</string>
     <string name="ahri_ability1_description">Ahri lanza y recupera su orbe, lo que inflige daño mágico al lanzarlo y daño verdadero al recuperarlo.</string>
     <string name="ahri_ability2_description">Ahri obtiene una breve mejora de velocidad de movimiento y lanza tres fuegos zorrunos que fijan y atacan a los enemigos cercanos.</string>
