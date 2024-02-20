@@ -4,16 +4,17 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -23,8 +24,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -55,9 +54,17 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ChampionApp() {
     Scaffold(
-        containerColor = Color(0xFF040C14),
+        modifier = Modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            ChampionTopAppBar()
+            Column {
+                ChampionTopAppBar()
+                Divider(
+                    color = MaterialTheme.colorScheme.outline,
+                    thickness = 4.dp
+                )
+            }
+
         }
     ) { innerPadding ->
         ChampionList(ChampionsRepository.champions, Modifier.padding(innerPadding))
@@ -71,7 +78,7 @@ fun ChampionTopAppBar() {
         title = {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
                 Image(
@@ -79,7 +86,6 @@ fun ChampionTopAppBar() {
                         .size(dimensionResource(id = R.dimen.icon_size))
                         .padding(dimensionResource(id = R.dimen.padding_small)),
                     painter = painterResource(R.drawable.lol_icon),
-
                     contentDescription = null
                 )
                 Text(
@@ -87,17 +93,24 @@ fun ChampionTopAppBar() {
                     style = MaterialTheme.typography.displayLarge
                 )
             }
-
         },
-        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = colorResource(id = R.color.ocean_blue)),
-        modifier = Modifier.height(80.dp).border(BorderStroke(3.dp, MaterialTheme.colorScheme.outline))
+        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = MaterialTheme.colorScheme.onBackground),
+        modifier = Modifier
+            .height(dimensionResource(id = R.dimen.top_app_bar_height))
+
     )
 }
-
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    LolChampionsTheme {
+fun LightPreview() {
+    LolChampionsTheme (){
+        ChampionApp()
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun DarkPreview() {
+    LolChampionsTheme (darkTheme = true){
         ChampionApp()
     }
 }

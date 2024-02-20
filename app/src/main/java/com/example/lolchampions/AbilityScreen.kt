@@ -1,5 +1,8 @@
 package com.example.lolchampions
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -24,21 +27,33 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.lolchampions.ui.theme.LolChampionsTheme
 
 @Composable
 fun AbilityList(championAbilities: List<Ability>, modifier: Modifier = Modifier) {
-    LazyRow(modifier = modifier) {
-        items(championAbilities) { ability ->
-            AbilityItem(ability = ability)
-            Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)))
+    Column(
+        modifier = Modifier
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioNoBouncy,
+                    stiffness = Spring.StiffnessMedium
+                )
+            )
+    ) {
+        LazyRow(modifier = modifier) {
+            items(championAbilities) { ability ->
+                AbilityItem(ability = ability)
+                Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)))
+            }
         }
 
     }
+
 }
 
 @Composable
@@ -61,7 +76,7 @@ fun AbilityIcon(imageRes: Int, onClick: () -> Unit) {
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(defaultElevation = dimensionResource(id = R.dimen.card_elevation)),
         border = BorderStroke(3.dp, MaterialTheme.colorScheme.outline),
-        colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.ocean_blue))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseSurface)
     ) {
         Image(
             painter = painterResource(id = imageRes),
@@ -73,7 +88,6 @@ fun AbilityIcon(imageRes: Int, onClick: () -> Unit) {
             contentScale = ContentScale.Crop
         )
     }
-
 }
 
 @Composable
@@ -97,3 +111,18 @@ fun AbilityInformation(descriptionRes: Int, function: () -> Unit) {
 }
 
 
+@Preview(showBackground = true)
+@Composable
+fun Light() {
+    LolChampionsTheme {
+        ChampionApp()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun Dark() {
+    LolChampionsTheme(darkTheme = true) {
+        ChampionApp()
+    }
+}

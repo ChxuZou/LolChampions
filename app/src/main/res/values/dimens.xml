@@ -6,4 +6,5 @@
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="icon_size">72dp</dimen>
     <dimen name="ability_size">72dp</dimen>
+    <dimen name="top_app_bar_height">80dp</dimen>
 </resources>
