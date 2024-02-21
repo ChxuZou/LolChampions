@@ -50,7 +50,7 @@ fun AbilityList(championAbilities: List<Ability>, modifier: Modifier = Modifier)
                 )
             ),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.Start
     ) {
         LazyRow(modifier = modifier) {
             itemsIndexed(championAbilities) { index, ability ->
