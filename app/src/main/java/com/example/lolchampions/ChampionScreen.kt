@@ -14,9 +14,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -34,7 +33,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -46,15 +44,14 @@ import model.Champion
 
 @Composable
 fun ChampionList(championList: List<Champion>, modifier: Modifier = Modifier) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(1),
+    LazyColumn(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small)),
         modifier = modifier
             .fillMaxSize(),
         contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_small))
     ) {
-        items(championList) { champion ->
-            ChampionItem(champion)
+        items(championList){
+            ChampionItem(champion = it)
         }
     }
 }
@@ -72,7 +69,7 @@ fun ChampionItem(
         shape = MaterialTheme.shapes.large,
         elevation = CardDefaults.cardElevation(defaultElevation = dimensionResource(id = R.dimen.card_elevation)),
         border = BorderStroke(3.dp, MaterialTheme.colorScheme.outline),
-        colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.ocean_blue))
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onBackground)
 
     ) {
         Column(
@@ -90,7 +87,7 @@ fun ChampionItem(
                     .padding(dimensionResource(R.dimen.padding_small))
             ) {
                 ChampionIcon(champion.imageRes)
-                Spacer(Modifier.weight(1f))
+                Spacer(Modifier.padding(start = dimensionResource(id = R.dimen.padding_medium)))
                 ChampionInformation(champion.nameRes, champion.descriptionRes)
                 Spacer(Modifier.weight(1f))
                 ChampionItemButton(
@@ -167,7 +164,7 @@ fun ChampionIcon(
         modifier = modifier
             .size(dimensionResource(R.dimen.image_size))
             .padding(dimensionResource(R.dimen.padding_small))
-            .clip(MaterialTheme.shapes.medium),
+            .clip(MaterialTheme.shapes.large),
         contentScale = ContentScale.Crop,
         painter = painterResource(imageRes),
         contentDescription = null
@@ -178,8 +175,7 @@ fun ChampionIcon(
 @Preview
 @Composable
 fun WoofPreview() {
-    LolChampionsTheme {
+    LolChampionsTheme(darkTheme = true) {
         ChampionApp()
     }
 }
-

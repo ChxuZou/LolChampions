@@ -1,9 +1,74 @@
 <resources>
     <string name="app_name">LoL Champions</string>
-    <string name="kaisa_name">K A I \' S A</string>
+
+    <string name="kaisa_name">KAI\'SA</string>
     <string name="kaisa_description">LA HIJA DEL VACÍO</string>
     <string name="kaisa_ability1_description">Kai\'Sa libera una ráfaga de proyectiles que buscan campeones enemigos cercanos. Arma viviente: Lluvia de Icathia mejora y dispara más misiles.</string>
     <string name="kaisa_ability2_description">Kai\'Sa dispara un misil de largo alcance y marca a los enemigos con la pasiva. Arma viviente: Buscador del Vacío mejora y aplica más acumulaciones de la pasiva, además de reducir el enfriamiento al golpear a un campeón.</string>
     <string name="kaisa_ability3_description">Kai\'Sa aumenta brevemente su velocidad de movimiento y después su velocidad de ataque. Arma viviente: Supercarga mejora y otorga brevemente invisibilidad.</string>
     <string name="kaisa_ability4_description">Kai\'Sa se desliza cerca de un campeón enemigo.</string>
+
+    <string name="lux_name">LUX</string>
+    <string name="lux_description">LA DAMA LUMINOSA</string>
+    <string name="lux_ability1_description">Lux lanza una esfera de luz que inmoviliza y causa daño a un máximo de 2 unidades enemigas.</string>
+    <string name="lux_ability2_description">Lux lanza su varita y concentra la luz alrededor de los objetivos aliados a los que alcanza, protegiéndolos de cualquier daño.</string>
+    <string name="lux_ability3_description">Lanza una anomalía de luz entrelazada a un área, que ralentiza a los enemigos cercanos. Lux puede activarla para dañar a los enemigos dentro del área de efecto.</string>
+    <string name="lux_ability4_description">Tras reunir la energía necesaria, Lux lanza un rayo de luz que inflige daño a todos los objetivos de la zona. Además, activa la pasiva de Lux y reinicia la duración de la debilitación de Iluminación.</string>
+
+    <string name="samira_name">SAMIRA</string>
+    <string name="samira_description">LA ROSA DEL DESIERTO</string>
+    <string name="samira_ability1_description">Samira realiza un disparo o ataca con su espada, lo que inflige daño. Si se lanza durante Carrera salvaje, golpea a todos los enemigos que haya en su camino al completarse.</string>
+    <string name="samira_ability2_description">Samira golpea a su alrededor, inflige daño a los enemigos y destruye los proyectiles enemigos.</string>
+    <string name="samira_ability3_description">Samira se desliza a través de un enemigo (incluye estructuras), corta a los enemigos a los que atraviesa y obtiene velocidad de ataque. Asesinar a un campeón enemigo reinicia el enfriamiento de esta habilidad.</string>
+    <string name="samira_ability4_description">Samira desata con sus armas un torrente de disparos con los que daña a todos los enemigos que se encuentren a su alrededor.</string>
+
+    <string name="fiddlesticks_name">FIDDLESTICKS</string>
+    <string name="fiddlesticks_description">EL TERROR ANCESTRAL</string>
+    <string name="fiddlesticks_ability1_description">Fiddlesticks infunde miedo al infligir daño con habilidades sin ser visto o al activar Terror seleccionando como objetivo a una unidad enemiga, provocando que los enemigos afectados huyan despavoridos mientras dure el efecto.</string>
+    <string name="fiddlesticks_ability2_description">Fiddlesticks drena la vida de los enemigos cercanos e inflige daño de ejecución adicional al final del efecto.</string>
+    <string name="fiddlesticks_ability3_description">Fiddlesticks ataca en área con su guadaña, lo que ralentiza a todos los enemigos alcanzados y silencia a aquellos que golpea en el centro de la cuchillada.</string>
+    <string name="fiddlesticks_ability4_description">Una bandada de cuervos rodea a Fiddlesticks e inflige daño cada segundo a todas las unidades enemigas de la zona.</string>
+
+    <string name="ksante_name">K\'SANTE</string>
+    <string name="ksante_description">EL ORGULLO DE NAZUMAH</string>
+    <string name="ksante_ability1_description">Golpea con un arma hacia delante, lo que inflige daño y ralentiza a todos los enemigos en una corta línea. Al golpear, otorga una acumulación durante unos cuantos segundos. Con dos acumulaciones, esta habilidad emite una onda de choque que atrae a los enemigos.</string>
+    <string name="ksante_ability2_description">K\'Sante carga antes de deslizarse. K\'Sante es imparable y recibe menos daño mientras carga. Empuja a los enemigos golpeados hasta el final del recorrido del deslizamiento y los aturde.</string>
+    <string name="ksante_ability3_description">K\'Sante se deslizará hacia un aliado y ambos obtendrán un escudo. Si no hay aliados, K\'Sante seguirá desplazándose hacia la ubicación con un alcance reducido y obtendrá un escudo.</string>
+    <string name="ksante_ability4_description">K\'Sante golpea a un enemigo y lo empuja. Si el enemigo golpea un muro, lo atravesará y sufrirá más daño. K\'Sante aparecerá detrás del objetivo y obtendrá los efectos de Órdago, lo que reduce su defensa pero aumenta enormemente su daño.</string>
+
+    <string name="smolder_name">SMOLDER</string>
+    <string name="smolder_description">EL HEREDERO DE LAS LLAMAS</string>
+    <string name="smolder_ability1_description">Smolder escupe fuego hacia un enemigo. Esta habilidad se vuelve más poderosa conforme obtiene acumulaciones.</string>
+    <string name="smolder_ability2_description">A Smolder se le escapa un adorable estornudo ígneo que explota al golpear a los campeones enemigos.</string>
+    <string name="smolder_ability3_description">Smolder alza el vuelo ignorando los obstáculos del terreno y ataca al enemigo con menos vida.</string>
+    <string name="smolder_ability4_description">Smolder llama a su madre para que escupa fuego desde los cielos, lo que inflige daño adicional y ralentiza a los enemigos que se encuentren en el centro de las llamas.</string>
+
+    <string name="belveth_name">BEL\'VETH</string>
+    <string name="belveth_description">LA EMPERATRIZ DEL VACÍO</string>
+    <string name="belveth_ability1_description">Bel\'Veth se desliza en la dirección elegida y daña a todos los enemigos a los que atraviesa.</string>
+    <string name="belveth_ability2_description">Bel\'Veth golpea el suelo, lo que inflige daño, lanza por los aires y ralentiza a sus enemigos.</string>
+    <string name="belveth_ability3_description">Bel\'Veth se queda inmóvil y canaliza una tormenta de cortes a su alrededor que selecciona como objetivo al enemigo con menos vida. Además, le otorga robo de vida y reducción de daño.</string>
+    <string name="belveth_ability4_description">Bel\'Veth consume restos de coral del Vacío, adopta su verdadera forma y aumenta su vida máxima, alcance de ataque, velocidad de ataque y velocidad de movimiento fuera de combate. Consumir restos de coral del Vacío de un monstruo épico del Vacío le otorgará más duración de la definitiva, además de poder invocar rémoras del Vacío.</string>
+
+    <string name="aatrox_name">AATROX</string>
+    <string name="aatrox_description">LA ESPADA DE LOS OSCUROS</string>
+    <string name="aatrox_ability1_description">Aatrox golpea con su espadón e inflige daño físico. Puede atacar tres veces, cada vez con un área de efecto distinta.</string>
+    <string name="aatrox_ability2_description">Aatrox golpea el suelo, lo que inflige daño al primer enemigo impactado. Los campeones y monstruos grandes deben abandonar el área de impacto rápidamente para evitar ser arrastrados hacia el centro y volver a recibir daño.</string>
+    <string name="aatrox_ability3_description">Aatrox se cura de forma pasiva cuando inflige daño a campeones enemigos. Al activarse, se desliza en una dirección.</string>
+    <string name="aatrox_ability4_description">Aatrox libera su forma demoníaca, lo que aterroriza a los súbditos enemigos cercanos, además de aumentar su daño de ataque, curación y velocidad de movimiento. Si consigue un asesinato o asistencia, la duración de este efecto se alarga.</string>
+
+    <string name="ahri_name">AHRI</string>
+    <string name="ahri_description">LA ZORRA DE NUEVE COLAS</string>
+    <string name="ahri_ability1_description">Ahri lanza y recupera su orbe, lo que inflige daño mágico al lanzarlo y daño verdadero al recuperarlo.</string>
+    <string name="ahri_ability2_description">Ahri obtiene una breve mejora de velocidad de movimiento y lanza tres fuegos zorrunos que fijan y atacan a los enemigos cercanos.</string>
+    <string name="ahri_ability3_description">Ahri lanza un beso que daña y hechiza al enemigo al que alcance primero, con lo que cancela instantáneamente todas sus habilidades de movimiento y hace que avance hacia ella de forma inofensiva.</string>
+    <string name="ahri_ability4_description">Ahri se desliza hacia delante y libera rayos de esencia que infligen daño a los enemigos cercanos. Impulso espiritual puede usarse hasta tres veces antes de entrar en enfriamiento y las eliminaciones de campeones enemigos otorgan lanzamientos adicionales.
+    </string>
+
+    <string name="anivia_name">ANIVIA</string>
+    <string name="anivia_description">LA CRIOFÉNIX</string>
+    <string name="anivia_ability1_description">Anivia junta las alas e invoca una esfera de hielo que vuela hacia sus enemigos, de modo que enfría y daña a cualquiera que se cruce en su camino. Al explotar, la esfera inflige daño moderado en un radio y aturde a los que se encuentren en la zona.</string>
+    <string name="anivia_ability2_description">Anivia condensa la humedad del aire en un muro de hielo infranqueable que bloquea todos los movimientos. El muro aguanta un breve periodo de tiempo antes de derretirse.</string>
+    <string name="anivia_ability3_description">Con un aleteo, Anivia lanza una ráfaga de viento congelado a su objetivo, lo que inflige daño. Si hace poco que el objetivo ha sido golpeado por Destello helado o dañado por una Tormenta glacial completamente formada, recibe el doble de daño.</string>
+    <string name="anivia_ability4_description">Anivia invoca una lluvia de hielo y granizo que daña a sus enemigos y dificulta su movimiento.</string>
 </resources>
