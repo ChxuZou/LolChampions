@@ -5,6 +5,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -41,7 +43,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.example.lolchampions.ui.theme.LolChampionsTheme
-import data.ChampionsDataSource
 import model.Ability
 import model.Champion
 
@@ -71,7 +72,7 @@ fun ChampionItem(
             .fillMaxWidth(),
         shape = MaterialTheme.shapes.large,
         elevation = CardDefaults.cardElevation(defaultElevation = dimensionResource(id = R.dimen.card_elevation)),
-        border = BorderStroke(3.dp, MaterialTheme.colorScheme.outline),
+        border = BorderStroke(dimensionResource(id = R.dimen.gold_border), MaterialTheme.colorScheme.outline),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onBackground)
 
     ) {
@@ -154,7 +155,6 @@ fun ChampionInformation(
             modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
         )
 
-
     }
 }
 
@@ -176,27 +176,29 @@ fun ChampionIcon(
         contentDescription = null
     )
 
-    ZoomImage(imageRes = imageRes, imageClicked) { imageClicked = false }
+    if (imageClicked) {
+        ZoomImage(imageRes = imageRes) { imageClicked = false }
+    }
 
 }
 
 @Composable
-fun ZoomImage(imageRes: Int, isShown: Boolean, imageClicked: () -> Unit) {
-
-    if (isShown) {
-        Dialog(
-            onDismissRequest = { imageClicked() },
-            content = {
-                Image(
-                    modifier = Modifier
-                        .clip(MaterialTheme.shapes.large),
-                    painter = painterResource(imageRes),
-                    contentDescription = null
-                )
-            }
-        )
-    }
-
+fun ZoomImage(imageRes: Int, imageClicked: () -> Unit) {
+    Dialog(
+        onDismissRequest = { imageClicked() },
+        content = {
+            Image(
+                modifier = Modifier
+                    .clip(MaterialTheme.shapes.large)
+                    .border(
+                        BorderStroke(dimensionResource(id = R.dimen.gold_border), MaterialTheme.colorScheme.outline),
+                        shape = RoundedCornerShape(16.0.dp)
+                    ),
+                painter = painterResource(imageRes),
+                contentDescription = null
+            )
+        }
+    )
 }
 
 
@@ -205,15 +207,5 @@ fun ZoomImage(imageRes: Int, isShown: Boolean, imageClicked: () -> Unit) {
 fun WoofPreview() {
     LolChampionsTheme(darkTheme = true) {
         ChampionApp()
-    }
-}
-
-@Preview
-@Composable
-fun DialogPreview() {
-    LolChampionsTheme(darkTheme = true) {
-        ZoomImage(imageRes = ChampionsDataSource().getData()[0].imageRes, isShown = true) {
-
-        }
     }
 }
