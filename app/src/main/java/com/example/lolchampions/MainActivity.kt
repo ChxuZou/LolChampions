@@ -28,7 +28,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.lolchampions.ui.theme.LolChampionsTheme
 import data.ChampionsDataSource
 
@@ -37,7 +36,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LolChampionsTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -62,7 +60,7 @@ fun ChampionApp() {
                 ChampionTopAppBar()
                 Divider(
                     color = MaterialTheme.colorScheme.outline,
-                    thickness = 4.dp
+                    thickness = dimensionResource(id = R.dimen.divider_thickness_size)
                 )
             }
 
@@ -105,13 +103,6 @@ fun ChampionTopAppBar() {
 @Composable
 fun LightPreview() {
     LolChampionsTheme {
-        ChampionApp()
-    }
-}
-@Preview(showBackground = true)
-@Composable
-fun DarkPreview() {
-    LolChampionsTheme (darkTheme = true){
         ChampionApp()
     }
 }

@@ -19,6 +19,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import model.Ability
@@ -34,6 +35,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.lolchampions.ui.theme.LolChampionsTheme
+import kotlinx.coroutines.delay
 
 @Composable
 fun AbilityList(championAbilities: List<Ability>, modifier: Modifier = Modifier) {
@@ -70,11 +72,24 @@ fun AbilityList(championAbilities: List<Ability>, modifier: Modifier = Modifier)
 }
 
 @Composable
-fun AbilityInformation(modifier: Modifier = Modifier, descriptionRes: Int){
+fun AbilityInformation(modifier: Modifier = Modifier, descriptionRes: Int) {
+    SlowTypeWriterAnimation(stringResource(id = descriptionRes), modifier = modifier)
+}
+
+@Composable
+fun SlowTypeWriterAnimation(text: String, modifier: Modifier = Modifier) {
+    var visibleText by remember { mutableStateOf("") }
+
+    LaunchedEffect(text) {
+        text.forEachIndexed { index, _ ->
+            delay(5)
+            visibleText = text.substring(0, index + 1)
+        }
+    }
     Text(
-        text = stringResource(id = descriptionRes),
+        text = visibleText,
         style = MaterialTheme.typography.bodyLarge,
-        modifier = modifier
+        modifier = modifier.padding(dimensionResource(id = R.dimen.padding_small))
     )
 }
 

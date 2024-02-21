@@ -5,6 +5,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -38,7 +39,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import com.example.lolchampions.ui.theme.LolChampionsTheme
+import data.ChampionsDataSource
 import model.Ability
 import model.Champion
 
@@ -50,7 +53,7 @@ fun ChampionList(championList: List<Champion>, modifier: Modifier = Modifier) {
             .fillMaxSize(),
         contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_small))
     ) {
-        items(championList){
+        items(championList) {
             ChampionItem(champion = it)
         }
     }
@@ -144,7 +147,7 @@ fun ChampionInformation(
             style = MaterialTheme.typography.displayMedium,
             modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
 
-            )
+        )
         Text(
             text = stringResource(regionRes),
             style = MaterialTheme.typography.labelSmall,
@@ -158,17 +161,42 @@ fun ChampionInformation(
 @Composable
 fun ChampionIcon(
     imageRes: Int,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
+    var imageClicked by remember { mutableStateOf(false) }
+
     Image(
         modifier = modifier
             .size(dimensionResource(R.dimen.image_size))
             .padding(dimensionResource(R.dimen.padding_small))
-            .clip(MaterialTheme.shapes.large),
+            .clip(MaterialTheme.shapes.large)
+            .clickable(onClick = { imageClicked = true }),
         contentScale = ContentScale.Crop,
         painter = painterResource(imageRes),
         contentDescription = null
     )
+
+    ZoomImage(imageRes = imageRes, imageClicked) { imageClicked = false }
+
+}
+
+@Composable
+fun ZoomImage(imageRes: Int, isShown: Boolean, imageClicked: () -> Unit) {
+
+    if (isShown) {
+        Dialog(
+            onDismissRequest = { imageClicked() },
+            content = {
+                Image(
+                    modifier = Modifier
+                        .clip(MaterialTheme.shapes.large),
+                    painter = painterResource(imageRes),
+                    contentDescription = null
+                )
+            }
+        )
+    }
+
 }
 
 
@@ -177,5 +205,15 @@ fun ChampionIcon(
 fun WoofPreview() {
     LolChampionsTheme(darkTheme = true) {
         ChampionApp()
+    }
+}
+
+@Preview
+@Composable
+fun DialogPreview() {
+    LolChampionsTheme(darkTheme = true) {
+        ZoomImage(imageRes = ChampionsDataSource().getData()[0].imageRes, isShown = true) {
+
+        }
     }
 }
