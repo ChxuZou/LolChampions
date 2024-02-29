@@ -4,7 +4,6 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,10 +29,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.lolchampions.ui.theme.LolChampionsTheme
 import kotlinx.coroutines.delay
 
@@ -72,8 +70,8 @@ fun AbilityList(championAbilities: List<Ability>, modifier: Modifier = Modifier)
 }
 
 @Composable
-fun AbilityInformation(modifier: Modifier = Modifier, descriptionRes: Int) {
-    SlowTypeWriterAnimation(stringResource(id = descriptionRes), modifier = modifier)
+fun AbilityInformation(modifier: Modifier = Modifier, descriptionRes: String) {
+    SlowTypeWriterAnimation( descriptionRes, modifier = modifier)
 }
 
 @Composable
@@ -94,7 +92,7 @@ fun SlowTypeWriterAnimation(text: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun AbilityIcon(ability: Ability, onClick: (Int) -> Unit) {
+fun AbilityIcon(ability: Ability, onClick: (String) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -104,8 +102,8 @@ fun AbilityIcon(ability: Ability, onClick: (Int) -> Unit) {
         border = BorderStroke(3.dp, MaterialTheme.colorScheme.outline),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.inverseSurface)
     ) {
-        Image(
-            painter = painterResource(id = ability.imageRes),
+        AsyncImage(
+            model = ability.imageRes,
             contentDescription = null,
             modifier = Modifier
                 .size(dimensionResource(R.dimen.ability_size))

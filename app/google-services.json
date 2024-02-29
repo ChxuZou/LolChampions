@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "808212298340",
+    "project_id": "lolchampions-8af2b",
+    "storage_bucket": "lolchampions-8af2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808212298340:android:7b46d7e95312b8d980fd71",
+        "android_client_info": {
+          "package_name": "com.example.lolchampions"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOvSQZfTXCoFpZRQweWd760ud4Rmfeiik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

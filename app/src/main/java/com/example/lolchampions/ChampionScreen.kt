@@ -4,7 +4,6 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -37,11 +36,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import coil.compose.AsyncImage
 import com.example.lolchampions.ui.theme.LolChampionsTheme
 import model.Ability
 import model.Champion
@@ -138,19 +136,19 @@ fun ChampionItemButton(
 
 @Composable
 fun ChampionInformation(
-    nameRes: Int,
-    regionRes: Int,
+    nameRes: String,
+    regionRes: String,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
         Text(
-            text = stringResource(nameRes),
+            text =nameRes,
             style = MaterialTheme.typography.displayMedium,
             modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
 
         )
         Text(
-            text = stringResource(regionRes),
+            text = regionRes,
             style = MaterialTheme.typography.labelSmall,
             modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_small))
         )
@@ -160,19 +158,19 @@ fun ChampionInformation(
 
 @Composable
 fun ChampionIcon(
-    imageRes: Int,
+    imageRes: String,
     modifier: Modifier = Modifier,
 ) {
     var imageClicked by remember { mutableStateOf(false) }
 
-    Image(
+    AsyncImage(
         modifier = modifier
             .size(dimensionResource(R.dimen.image_size))
             .padding(dimensionResource(R.dimen.padding_small))
             .clip(MaterialTheme.shapes.large)
             .clickable(onClick = { imageClicked = true }),
         contentScale = ContentScale.Crop,
-        painter = painterResource(imageRes),
+        model = imageRes,
         contentDescription = null
     )
 
@@ -183,18 +181,18 @@ fun ChampionIcon(
 }
 
 @Composable
-fun ZoomImage(imageRes: Int, imageClicked: () -> Unit) {
+fun ZoomImage(imageRes: String, imageClicked: () -> Unit) {
     Dialog(
         onDismissRequest = { imageClicked() },
         content = {
-            Image(
+            AsyncImage(
                 modifier = Modifier
                     .clip(MaterialTheme.shapes.large)
                     .border(
                         BorderStroke(dimensionResource(id = R.dimen.gold_border), MaterialTheme.colorScheme.outline),
                         shape = RoundedCornerShape(16.0.dp)
                     ),
-                painter = painterResource(imageRes),
+                model = imageRes,
                 contentDescription = null
             )
         }
